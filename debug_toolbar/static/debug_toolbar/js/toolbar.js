@@ -168,7 +168,7 @@
                     return false;
                 }
             });
-            $(document).bind('close.djDebug', function() {
+            $(document).on('close.djDebug', function() {
                 // If a sub-panel is open, close that
                 if ($('#djDebugWindow').is(':visible')) {
                     $('#djDebugWindow').hide();
@@ -222,7 +222,7 @@
                 handle.css({top: handleTop + 'px'});
             }
             // Unbind keydown
-            $(document).unbind('keydown.djDebug');
+            $(document).off('keydown.djDebug');
             if (setCookie) {
                 djdt.cookie.set('djdt', 'hide', {
                     path: '/',
@@ -232,7 +232,7 @@
         },
         show_toolbar: function(animate) {
             // Set up keybindings
-            $(document).bind('keydown.djDebug', function(e) {
+            $(document).on('keydown.djDebug', function(e) {
                 if (e.keyCode == 27) {
                     djdt.close();
                 }
